@@ -19,11 +19,11 @@ Follow these steps to set up and run the Flask project from GitHub:
    `pip install -r requirements.txt`
 
 6. **Run the Application**    
-   `python app.py`
+   `python run.py`
 
 7. **Access the Application**  
    Open your browser and go to: `http://127.0.0.1:5000`
 
+---
 
-A virtual gym assistant designed by Saud
-
+A virtual gym assistant designed by Saud.

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn More About Bicep Curls</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body class="index-back">
+    <div class="gradient-effect"></div>
+    <div class="main-content-LM">
+      <div class="content">
+        <div class="text-section">
+          <h2>Why Shoulder Press Is Important?</h2>
+          <p>
+            The shoulder press is a vital exercise for building upper body
+            strength and improving overall fitness. Here are some key benefits:
+          </p>
+          <ul class="benefits-list">
+            <li>
+              Strengthens the muscles in your shoulders, upper back, and arms.
+            </li>
+            <li>Improves upper body stability and posture.</li>
+            <li>
+              Enhances functional strength for daily activities that involve
+              pushing and lifting.
+            </li>
+            <li>
+              Engages core muscles, promoting overall stability and balance.
+            </li>
+            <li>
+              Helps prevent shoulder injuries by strengthening the supporting
+              muscles and tendons.
+            </li>
+            <li>
+              Can be performed with various equipment, such as dumbbells,
+              barbells, or resistance bands, adding versatility to your workout
+              routine.
+            </li>
+          </ul>
+        </div>
+        <div class="image-section">
+          <img
+            src="{{ url_for('static', filename='shoulderPress.png') }}"
+            alt="Shoulder Press"
+          />
+        </div>
+      </div>
+      <div class="button-container">
+        <a href="{{ url_for('shoulderPress') }}" class="button-LM">Back</a>
+        <a href="{{ url_for('index') }}" class="button-LM">Home</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn More About Bicep Curls</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body class="index-back">
+    <div class="gradient-effect"></div>
+    <div class="main-content-LM">
+        <div class="content">
+            <div class="text-section">
+                <h2>Why Mountain Climbers Are Important?</h2>
+                <p>
+                    Mountain climbers are a dynamic exercise that provides a full-body workout and improves overall
+                    fitness. Here are some key benefits:
+                </p>
+                <ul class="benefits-list">
+                    <li>Engages multiple muscle groups, including the shoulders, arms, core, and legs.</li>
+                    <li>Improves cardiovascular fitness by increasing heart rate.</li>
+                    <li>Enhances core strength and stability.</li>
+                    <li>Boosts agility and coordination through rapid movement and balance challenges.</li>
+                    <li>Supports weight management by burning calories and boosting metabolism.</li>
+                    <li>Can be performed anywhere, requiring no special equipment.</li>
+                </ul>
+
+            </div>
+            <div class="image-section">
+                <img src="{{ url_for('static', filename='mountainClimbers.png') }}" alt="Mountain Climbers" />
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="{{ url_for('mountainClimbers') }}" class="button-LM">Back</a>
+            <a href="{{ url_for('index') }}" class="button-LM">Home</a>
+        </div>
+    </div>
+</body>
+
+</html>

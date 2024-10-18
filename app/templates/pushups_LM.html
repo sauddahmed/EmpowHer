@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn More About Bicep Curls</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body class="index-back">
+  <div class="gradient-effect"></div>
+  <div class="main-content-LM">
+    <div class="content">
+      <div class="text-section">
+        <h2>Why Pushups Are Important ?</h2>
+        <p>
+          Pushups are a versatile and effective exercise for building upper body strength and improving overall fitness.
+          Here are some key benefits:
+        </p>
+        <ul class="benefits-list">
+          <li>Enhances muscle strength and endurance in the chest, shoulders, and triceps.</li>
+          <li>Engages the core muscles, helping to improve stability and balance.</li>
+          <li>Helps improve posture by strengthening the muscles that support the spine.</li>
+          <li>Increases overall functional fitness, making everyday tasks easier.</li>
+          <li>Boosts cardiovascular health when done in high repetitions or as part of a circuit.</li>
+        </ul>
+      </div>
+      <div class="image-section">
+        <img src="{{ url_for('static', filename='pushup.png') }}" alt="Pushups" />
+      </div>
+    </div>
+    <div class="button-container">
+      <a href="{{ url_for('pushups') }}" class="button-LM">Back</a>
+      <a href="{{ url_for('index') }}" class="button-LM">Home</a>
+    </div>
+  </div>
+</body>
+
+</html>

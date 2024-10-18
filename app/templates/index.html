@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <title>Exercise Counter</title>
+</head>
+
+<body class="index-back">
+  <div class="wrapper">
+    <div class="container">
+      <div class="navbar">
+        <h1 class="main-title-index">Empow<span style="color: #ff4500;">Her</span></h1>
+
+
+        <!-- Social media icons on the right -->
+        <div class="right">
+          <a href="{{ url_for('index') }}" class="active">Home</a>
+          <a href="{{ url_for('bmi_calculator') }}">BMI Calculator</a>
+          <a href="{{ url_for('calorie_calculator') }}">Calorie Calculator</a>
+          <a href="{{ url_for('periods') }}">Period Pain Yoga</a>
+        </div>
+      </div>
+      <div class="cards-title-container">
+        <div class="gif-title">
+          <!-- <div class="ai">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="AI Image" />
+        </div> -->
+          <!-- <h1 class="main-title-index">Empow<span style="color: #ff4500;">Her</span></h1> -->
+          <br>
+          <h2 class="main-title-index">Empowering Your Fitness, Anywhere You Go.</h2>
+        </div>
+        <div class="cards">
+          <a class="card bicep" href="{{ url_for('BicepCurls') }}">
+            <div class="card-content">
+              <h2>Bicep Curls</h2>
+              <img class="hover-image" src="{{ url_for('static', filename='bicepcurl.png') }}"
+                alt="Dumbbell for Bicep Curls" />
+            </div>
+          </a>
+          <a class="card pushup" href="{{ url_for('pushups') }}">
+            <div class="card-content">
+              <h2>Push-Ups</h2>
+              <img class="hover-image" src="{{ url_for('static', filename='pushup.png') }}"
+                alt="Dumbbell for Push-Ups" />
+            </div>
+          </a>
+          <a class="card squat" href="{{ url_for('squats') }}">
+            <div class="card-content">
+              <h2>Squats</h2>
+              <img class="hover-image" src="{{ url_for('static', filename='squats.png') }}" alt="Dumbbell for Squats" />
+            </div>
+          </a>
+          <a class="card lunge" href="{{ url_for('lunges') }}">
+            <div class="card-content">
+              <h2>Lunges</h2>
+              <img class="hover-image" src="{{ url_for('static', filename='lunges.png') }}" alt="Dumbbell for Lunges" />
+            </div>
+          </a>
+          <br>
+          <a class="card shoulderPress" href="{{ url_for('shoulderPress') }}">
+            <div class="card-content">
+              <h2>Shoulder Press</h2>
+              <img class="hover-image" src="{{ url_for('static', filename='shoulderPress.png') }}"
+                alt="Dumbbell for Shoulder Press" />
+            </div>
+          </a>
+          <a class="card crunches" href="{{ url_for('crunches') }}">
+            <div class="card-content">
+              <h2>Crunches</h2>
+              <img class="hover-image" src="{{ url_for('static', filename='crunches.png') }}"
+                alt="Dumbbell for Crunches" />
+            </div>
+          </a>
+          <a class="card mountainClimbers" href="{{ url_for('mountainClimbers') }}">
+            <div class="card-content">
+              <h2>Mountain Climbers</h2>
+              <img class="hover-image" src="{{ url_for('static', filename='mountainClimbers.png') }}"
+                alt="Dumbbell for Mountain Climbers" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="credits">
+      <p>© 2024 Virtual Gym App. All rights reserved. Designed by Saud.</p>
+    </div>
+</body>
+
+</html>

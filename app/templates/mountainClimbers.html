@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mountain Climbers Counter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body class="bicep-back">
+  <div class="navbar exercise-btn">
+    <a id="prev-btn" href="#" onclick="navigateTo('prev')" class="prev-next-button">Previous Exercise</a>
+    <p class="exercise-title">Mountain Climbers</p>
+    <a id="next-btn" href="#" onclick="navigateTo('next')" class="prev-next-button">Next Exercise</a>
+  </div>
+
+  <script>
+    function navigateTo(direction) {
+      const pages = [
+        { href: "{{ url_for('BicepCurls') }}", name: "BicepCurls" },
+        { href: "{{ url_for('pushups') }}", name: "pushups" },
+        { href: "{{ url_for('squats') }}", name: "squats" },
+        { href: "{{ url_for('lunges') }}", name: "lunges" },
+        { href: "{{ url_for('shoulderPress') }}", name: "shoulderPress" },
+        { href: "{{ url_for('crunches') }}", name: "crunches" },
+        { href: "{{ url_for('mountainClimbers') }}", name: "mountainClimbers" }
+      ];
+
+      // Get the current page's index
+      let currentPage = pages.findIndex(page => window.location.href.includes(page.href));
+
+      if (direction === 'next') {
+        currentPage = (currentPage + 1) % pages.length;
+      } else if (direction === 'prev') {
+        currentPage = (currentPage - 1 + pages.length) % pages.length;
+      }
+
+      // Redirect to the new page
+      window.location.href = pages[currentPage].href;
+    }
+  </script>
+
+  <div class="gif-and-text">
+    <div class="text-container">
+      <p1>How To Do Mountain Climbers</p1>
+      <hr />
+      <ul>
+        <li>Stand tall with feet hip-width apart, engaging your abs.</li>
+        <li>
+          Hold a dumbbell in each hand, arms relaxed at your sides, palms
+          forward.
+        </li>
+        <li>
+          Bend elbows to lift weights to shoulder height, keeping them close
+          to your body and exhale while lifting
+        </li>
+        <li>Lower the weights to the starting position.</li>
+      </ul>
+    </div>
+    <div class="gif-container">
+      <img src="{{ url_for('static', filename='mountainClimbers.png') }}" alt="Mountain Climbers" />
+    </div>
+  </div>
+  <div class="container">
+    <h1 class="main-title">Mountain Climbers Counter</h1>
+    <div class="video-container">
+      <img src="{{ url_for('mountainClimbers_video_feed') }}" width="640" height="460" alt="Video Feed"
+        border="3px solid black" ; />
+    </div>
+    <div class="loading-screen">Loading...</div>
+    <div class="button-container">
+      <a href="{{ url_for('mountainClimbers_statistics') }}" class="button red-button">Stop Workout</a>
+      <a href="{{ url_for('index') }}" class="button">Home</a>
+      <a href="{{ url_for('mountainClimbers_LM') }}" class="button">Learn More</a>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

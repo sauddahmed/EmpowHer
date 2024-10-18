@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoulder Press Statistics</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <!-- Link to your CSS file -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include Chart.js -->
+  </head>
+
+  <body class="index-back">
+    <div class="container">
+      <div class="stats-container">
+        <h1>Shoulder Press Statistics</h1>
+        <br />
+
+        <div class="stats-content">
+          <div class="stats-section">
+            <p class="stats-p">Reps: {{ stats.reps }}</p>
+            <p class="stats-p">Time: {{ stats.time | round(2) }} seconds</p>
+          </div>
+
+          <div class="canvas-chart">
+            <canvas
+              id="shoulderPressChart"
+              data-reps="{{ stats.reps }}"
+              data-time="{{ stats.time }}"
+            >
+            </canvas>
+          </div>
+        </div>
+
+        <div class="stats-button">
+          <a href="{{ url_for('shoulderPress') }}" class="button-stop">Back</a>
+          <a href="{{ url_for('index') }}" class="button-stop">Home</a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // Retrieve data from data attributes
+    const canvas = document.getElementById("shoulderPressChart");
+    const reps = parseInt(canvas.getAttribute("data-reps"));
+    const time = parseFloat(canvas.getAttribute("data-time"));
+
+    // Chart data
+    const data = {
+      labels: ["0 seconds", `${time.toFixed(1)} seconds`], // Two time points
+      datasets: [
+        {
+          label: "Reps",
+          borderColor: "rgba(255, 69, 0, 1)", // Orange color in RGBA
+          backgroundColor: "rgba(255, 69, 0, 0.2)", // Orange color with transparency
+          data: [0, reps], // Start at 0 reps and increase to the actual reps value
+          fill: false,
+        },
+      ],
+    };
+
+    // Chart configuration
+    const config = {
+      type: "line",
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+            labels: {
+              color: "white", // Set legend label color to white
+            },
+          },
+          tooltip: {
+            mode: "index",
+            intersect: false,
+          },
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: "Time",
+              color: "white", // Set axis title color to white
+            },
+            ticks: {
+              color: "white", // Set tick labels color to white
+              stepSize: 1,
+            },
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: "Reps",
+              color: "white", // Set axis title color to white
+            },
+            ticks: {
+              color: "white", // Set tick labels color to white
+              stepSize: 0.5,
+            },
+          },
+        },
+      },
+    };
+
+    // Initialize chart
+    var myChart = new Chart(canvas, config);
+  </script>
+</html>

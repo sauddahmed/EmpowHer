@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mountain Climbers Statistics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <!-- Link to your CSS file -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Include Chart.js -->
+</head>
+
+<body class="index-back">
+  <div class="container">
+    <div class="stats-container">
+      <h1>Mountain Climbers Statistics</h1>
+
+      <div class="stats-content">
+        <div class="stats-section">
+          <p class="stats-p">Left Reps: {{ stats.reps_left }}</p>
+          <p class="stats-p">Right Reps: {{ stats.reps_right }}</p>
+          <p class="stats-p">Time: {{ stats.time | round(2) }} seconds</p>
+        </div>
+
+        <div class="canvas-chart">
+          <canvas id="mountainClimbersChart" data-reps-left="{{ stats.reps_left }}"
+            data-reps-right="{{ stats.reps_right }}" data-time="{{ stats.time }}">
+          </canvas>
+        </div>
+      </div>
+
+      <div class="stats-button">
+        <a href="{{ url_for('mountainClimbers') }}" class="button-stop">Back</a>
+        <a href="{{ url_for('index') }}" class="button-stop">Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Retrieve data from data attributes
+    const canvas = document.getElementById("mountainClimbersChart");
+    const repsLeft = parseInt(canvas.getAttribute("data-reps-left"));
+    const repsRight = parseInt(canvas.getAttribute("data-reps-right"));
+    const time = parseFloat(canvas.getAttribute("data-time"));
+
+    // Chart data
+    const data = {
+      labels: ["0", `${time.toFixed(1)} seconds`],
+      datasets: [
+      {
+          label: "Left Reps",
+          borderColor: "rgba(255, 69, 0, 1)", // Orange color in RGBA
+          backgroundColor: "rgba(255, 69, 0, 0.2)", // Orange color with transparency
+          data: [repsLeft, 0], // Left reps over time
+          fill: false,
+        },
+        {
+          label: "Right Reps",
+          borderColor: "rgba(54, 162, 235, 1)",
+          backgroundColor: "rgba(54, 162, 235, 0.2)",
+          data: [repsRight, 0], // Right reps over time
+          fill: false,
+        },
+      ],
+    };
+
+    // Chart configuration
+    const config = {
+      type: "line",
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: "top",
+            labels: {
+              color: "white", // Set legend label color to white
+            },
+          },
+          tooltip: {
+            mode: "index",
+            intersect: false,
+          },
+        },
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: "Time",
+              color: "white", // Set axis title color to white
+            },
+            ticks: {
+              color: "white", // Set tick labels color to white
+            },
+          },
+          y: {
+            display: true,
+            title: {
+              display: true,
+              text: "Reps",
+              color: "white", // Set axis title color to white
+            },
+            ticks: {
+              color: "white", // Set tick labels color to white
+            },
+          },
+        },
+      },
+    };
+
+    // Initialize chart
+    var myChart = new Chart(canvas, config);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn More About Bicep Curls</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body class="index-back">
+  <div class="gradient-effect"></div>
+  <div class="main-content-LM">
+    <div class="content">
+      <div class="text-section">
+        <h2>Why Squats Are Important ?</h2>
+        <p>
+          Squats are a fundamental exercise for building lower body strength and improving overall fitness. Here are
+          some key benefits:
+        </p>
+        <ul class="benefits-list">
+          <li>Strengthens the muscles in your legs, including the quadriceps, hamstrings, and calves.</li>
+          <li>Engages the core muscles, improving stability and balance.</li>
+          <li>Helps improve posture by strengthening the muscles of the lower back and abdomen.</li>
+          <li>Can enhance athletic performance by increasing power and speed.</li>
+          <li>Supports joint health by improving flexibility and range of motion in the hips and knees.</li>
+          <li>Boosts metabolic rate and helps with weight management.</li>
+        </ul>
+      </div>
+      <div class="image-section">
+        <img src="{{ url_for('static', filename='squats.png') }}" alt="Squats" />
+      </div>
+    </div>
+    <div class="button-container">
+      <a href="{{ url_for('squats') }}" class="button-LM">Back</a>
+      <a href="{{ url_for('index') }}" class="button-LM">Home</a>
+    </div>
+  </div>
+</body>
+
+</html>

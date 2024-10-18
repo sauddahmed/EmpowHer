@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn More About Bicep Curls</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+
+  <body class="index-back">
+    <div class="gradient-effect"></div>
+    <div class="main-content-LM">
+      <div class="content">
+        <div class="text-section">
+          <h2>Why Bicep Curls Are Important ?</h2>
+          <p>
+            Bicep curls are a fundamental exercise for building upper arm
+            strength and improving overall arm definition. Here are some key
+            benefits:
+          </p>
+          <ul class="benefits-list">
+            <li>Improves muscle endurance and stamina.</li>
+            <li>Enhances the appearance of your arms.</li>
+            <li>Increases strength in your arms and forearms.</li>
+            <li>
+              Helps with everyday tasks that involve lifting and carrying.
+            </li>
+            <li>
+              Can prevent injuries by strengthening the tendons and ligaments in
+              your arms.
+            </li>
+          </ul>
+        </div>
+        <div class="image-section">
+          <img
+            src="{{ url_for('static', filename='bicepcurl.png') }}"
+            alt="Bicep curls"
+          />
+        </div>
+      </div>
+      <div class="button-container">
+        <a href="{{ url_for('BicepCurls') }}" class="button-LM">Back</a>
+        <a href="{{ url_for('index') }}" class="button-LM">Home</a>
+      </div>
+    </div>
+  </body>
+</html>

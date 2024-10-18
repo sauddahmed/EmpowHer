@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+
+<body class="calorie-back">
+
+    <div class="navbar">
+        <h1 class="main-title-index" style="color: #fff;">Empow<span style="color: #ff4500;">Her</span></h1>
+        <div class="right">
+            <a href="{{ url_for('index') }}" class="navbar-links">Home</a>
+            <a href="{{ url_for('bmi_calculator') }}" class="navbar-links">BMI Calculator</a>
+            <a href="{{ url_for('calorie_calculator') }}" class="active-links navbar-links">Calorie Calculator</a>
+            <a href="{{ url_for('periods') }}" class="navbar-links">Period Pain Yoga</a>
+        </div>
+    </div>
+
+    <div class="calorie-container-main">
+        <div class="calorie-calculator-grid">
+
+            <!-- Form Section (Left Column) -->
+            <form class="calorie-form" action="/calorie_calculator" method="post">
+                <div class="calorie-form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="2" max="120" required />
+                </div>
+
+                <div class="calorie-form-group gender-group">
+                    <label></label>
+                    <label for="male" class="custom-radio-label">
+                        <input type="radio" id="male" name="gender" value="male" required />
+                        <span class="custom-radio"></span>
+                        Male
+                    </label>
+                    <label for="female" class="custom-radio-label">
+                        <input type="radio" id="female" name="gender" value="female" required />
+                        <span class="custom-radio"></span>
+                        Female
+                    </label>
+                </div>
+
+                <div class="height-container-calorie">
+                    <div class="calorie-form-group">
+                        <label for="height-feet">Height (Feet):</label>
+                        <input type="number" id="height-feet" name="height_feet" step="1" required />
+                    </div>
+
+                    <div class="calorie-form-group">
+                        <label for="height-inches">Inches:</label>
+                        <input type="number" id="height-inches" name="height_inches" step="0.1" required />
+                    </div>
+                </div>
+
+                <div class="calorie-form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" name="weight" step="0.1" required />
+                </div>
+
+                <div class="calorie-form-group">
+                    <label for="activity_level">Activity Level:</label>
+                    <select id="activity_level" name="activity_level" class="activity-level-select" required>
+                        <option value="sedentary">Sedentary (little or no exercise)</option>
+                        <option value="light">Lightly active (light exercise/sports 1-3 days/week)</option>
+                        <option value="moderate">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+                        <option value="active">Very active (hard exercise/sports 6-7 days a week)</option>
+                        <option value="very_active">Super active (very hard exercise/sports & physical job)</option>
+                    </select>
+                </div>
+
+                <div class="calorie-form-group">
+                    <input type="submit" value="Calculate" class="calculate-button-calorie" />
+                </div>
+            </form>
+
+            <!-- Result Section (Right Column) -->
+            <div class="result-container">
+                <div class="result resultcalories">
+                    {% if calories %}
+                    <p>Maintenance Calories: {{ calories.maintenance }} cal
+                        <br><small><span style="color: #ff4500;">Must be consumed daily to maintain your
+                                current
+                                weight.</span></small>
+                    </p>
+                    <p>Bulking Calories: {{ calories.bulking }} cal <br><small><span style="color: #ff4500;">Must be
+                                consumed daily to gain muscle and
+                                increase
+                                weight.</span></small>
+                    </p>
+                    <p>Cutting Calories: {{ calories.cutting }} cal <br><small><span style="color: #ff4500;">Must be
+                                consumed daily to lose fat and decrease
+                                weight.</span></small>
+                    </p>
+                    {% else %}
+                    <p style="text-align: center;">
+                        </pstyle>Fill out the data to see your daily calorie needs</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<div class="credits">
+    <p>© 2024 Virtual Gym App. All rights reserved. Designed by Saud.</p>
+</div>
+
+</html>

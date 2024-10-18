@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Pain Yoga Poses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+
+<body class="period-back">
+    <div class="navbar">
+        <h1 class="main-title-index" style="color: #fff;">Empow<span style="color: #ff4500;">Her</span></h1>
+        <div class="right">
+            <a href="{{ url_for('index') }}" class="navbar-links">Home</a>
+            <a href="{{ url_for('bmi_calculator') }}" class="navbar-links">BMI Calculator</a>
+            <a href="{{ url_for('calorie_calculator') }}" class="navbar-links">Calorie Calculator</a>
+            <a href="{{ url_for('periods') }}" class="active-links navbar-links">Period Pain Yoga</a>
+        </div>
+    </div>
+    <div class="carousel-container">
+        <div class="carousel-main">
+            <div class="carousel-wrapper">
+                <div class="carousel-slide"></div>
+                <div class="carousel-slide"></div>
+                <div class="carousel-slide"></div>
+                <div class="carousel-slide"></div>
+                <div class="carousel-slide"></div>
+                <div class="carousel-slide"></div>
+                <div class="carousel-slide"></div>
+            </div>
+
+            <div class="carousel-buttons">
+                <button class="carousel-button" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-button" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </div>
+
+        <div class="text-info-container">
+            <div id="text-info" class="text-info"></div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="card-container">
+        <div class="counterinfo-container">
+            <div class="countdown-container">
+                <svg class="progress-circle" width="200" height="200">
+                    <circle class="progress-background" cx="100" cy="100" r="90" />
+                    <circle class="progress" cx="100" cy="100" r="90" />
+                </svg>
+                <div class="countdown-text" id="countdown-text">60</div>
+            </div>
+
+            <div class="countdown-buttons">
+                <button id="start-btn">Start</button>
+                <button id="restart-btn" disabled>Restart</button>
+            </div>
+            <div class="counter-info-container">
+                <p class="counter-info">Perform each pose for 1 minute.<br> The timer starts after a 3-second
+                    delay.<br>Use navigation buttons to go to the next pose.<br>Restart the timer after each pose.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="credits">
+        <p>© 2024 Virtual Gym App. All rights reserved. Designed by Saud.</p>
+    </div>
+</body>
+<script>
+    const countdownDuration = 60; // in seconds
+    let remainingTime = countdownDuration;
+    let countdownTimer;
+    let delayTimer; // For the 3-second delay countdown
+    const progressCircle = document.querySelector('.progress');
+    const countdownText = document.getElementById('countdown-text');
+    const startButton = document.getElementById('start-btn');
+    const restartButton = document.getElementById('restart-btn');
+
+    function resetProgressBar() {
+        const radius = 90;
+        const circumference = 2 * Math.PI * radius;
+        progressCircle.style.strokeDasharray = `${circumference} ${circumference}`;
+        progressCircle.style.strokeDashoffset = circumference; // Make the circle appear empty initially
+    }
+
+    function updateProgressBar() {
+        const radius = 45;
+        const circumference = 2 * Math.PI * radius;
+        const offset = circumference - (remainingTime / countdownDuration) * circumference;
+        progressCircle.style.strokeDashoffset = offset;
+    }
+
+    function startMainCountdown() {
+        countdownTimer = setInterval(() => {
+            if (remainingTime > 0) {
+                remainingTime--;
+                countdownText.textContent = remainingTime;
+                updateProgressBar();
+            } else {
+                clearInterval(countdownTimer); // Stop the countdown when it reaches 0
+                startButton.disabled = false; // Re-enable the start button
+                restartButton.disabled = true; // Disable the restart button
+            }
+        }, 1000);
+    }
+
+    function startCountdown() {
+        // Reset remaining time and progress bar
+        remainingTime = countdownDuration;
+        resetProgressBar();
+
+        let countdown = 3; // 3-second delay countdown
+        countdownText.textContent = countdown; // Immediately show the first number
+
+        delayTimer = setInterval(() => {
+            countdown--; // Decrease countdown immediately
+            if (countdown > 0) {
+                countdownText.textContent = countdown; // Update the displayed countdown
+            } else {
+                clearInterval(delayTimer); // Clear the delay timer after 3 seconds
+                startMainCountdown(); // Start the main countdown after the delay
+            }
+        }, 1000);
+    }
+
+    function restartCountdown() {
+        // Clear both timers
+        clearInterval(countdownTimer); // Clear the main countdown timer
+        clearInterval(delayTimer); // Clear the 3-second delay timer
+
+        // Reset and start the countdown again
+        startCountdown();
+    }
+
+    // Event listeners for buttons
+    startButton.addEventListener('click', function () {
+        startButton.disabled = true; // Disable start button when countdown starts
+        restartButton.disabled = false; // Enable restart button when countdown starts
+        startCountdown();
+    });
+
+    restartButton.addEventListener('click', function () {
+        restartCountdown(); // Restart the countdown when the button is clicked
+    });
+
+    // Initial setup to reset the progress bar
+    resetProgressBar();
+
+</script>
+
+<script>
+   const textInfo = [
+    '<big><b>Cobra Pose (Bhujangasana):</b></big><br><p>This pose opens the chest and stretches the lower back, promoting blood flow and reducing menstrual cramps and bloating. Deep breathing helps calm the mind.</p>',
+
+    '<big><b>Camel Pose:</b></big><br><p>This pose stretches the front body and enhances blood flow to reproductive organs, easing cramping. It improves spinal flexibility and encourages deep breathing.</p>',
+
+    '<big><b>Downward Dog Pose:</b></big><br><p>A full-body stretch that relieves tension in the back and hamstrings, improving circulation and reducing pelvic discomfort. It also promotes calmness and stress relief.</p>',
+
+    '<big><b>Pavanmuktasana:</b></big><br><p>This pose compresses the abdomen, relieving bloating and digestive issues while soothing menstrual cramps. It promotes relaxation and eases tension.</p>',
+
+    '<big><b>Urdhva Dhanurasana:</b></big><br><p>This intense backbend stretches the abdomen and opens the chest, enhancing circulation to relieve cramps. It also boosts energy and improves mood.</p>',
+
+    '<big><b>Paschimottanasana:</b></big><br><p>This forward bend stretches the lower back, improves blood flow, and eases cramps. It calms the mind and encourages relaxation during menstruation.</p>',
+
+    '<big><b>Janu Sirsasana:</b></big><br><p>A restorative pose that stretches the hamstrings and lower back, easing discomfort and promoting digestion. Deep breathing helps reduce stress.</p>'
+];
+
+
+
+    let index = 0;
+
+    // Call updateTextInfo to set the initial text
+    updateTextInfo();
+
+    function moveSlide(step) {
+        const slides = document.querySelector('.carousel-wrapper');
+        const totalSlides = document.querySelectorAll('.carousel-slide').length;
+        index = (index + step + totalSlides) % totalSlides;
+        slides.style.transform = `translateX(-${index * 100}%)`;
+        updateTextInfo();
+    }
+
+    function updateTextInfo() {
+        const textElement = document.getElementById('text-info');
+        textElement.innerHTML = textInfo[index];
+    }
+</script>
+
+</html>

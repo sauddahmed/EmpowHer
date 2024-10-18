@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Exercise Counter</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <h1 class="main-title-index">Virtual Gym Assistant</h1>
+        <div class="cards">
+          <a class="card bicep" href="{{ url_for('BicepCurls') }}">
+            <div class="card-content">
+              <h2>Bicep Curls</h2>
+            </div>
+          </a>
+          <a class="card pushup" href="{{ url_for('pushups') }}">
+            <div class="card-content">
+              <h2>Push-Ups</h2>
+            </div>
+          </a>
+          <a class="card squat" href="{{ url_for('squats') }}">
+            <div class="card-content">
+              <h2>Squats</h2>
+            </div>
+          </a>
+          <a class="card lunge" href="{{ url_for('lunges') }}">
+            <div class="card-content">
+              <h2>Lunges</h2>
+            </div>
+          </a>
+          <a class="card shoulderPress" href="{{ url_for('shoulderPress') }}">
+            <div class="card-content">
+              <h2>Shoulder Press</h2>
+            </div>
+          </a>
+          <a class="card crunches" href="{{ url_for('crunches') }}">
+            <div class="card-content">
+              <h2>Crunches</h2>
+            </div>
+          </a>
+          <a
+            class="card mountainClimbers"
+            href="{{ url_for('mountainClimbers') }}"
+          >
+            <div class="card-content">
+              <h2>Mountain Climbers</h2>
+            </div>
+          </a>
+        </div>
+        <div class="ai">
+          <img
+            src="{{ url_for('static', filename='background5.png') }}"
+            alt="AI Image"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="credits">
+      <p>© 2024 Virtual Gym App. All rights reserved. Designed by Saud.</p>
+    </div>
+  </body>
+</html>

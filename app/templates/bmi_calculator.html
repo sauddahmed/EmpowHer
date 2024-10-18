@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+
+<body class="bmi-back">
+    <div class="navbar">
+        <h1 class="main-title-index" style="color: #fff;">Empow<span style="color: #ff4500;">Her</span></h1>
+
+
+        <!-- Social media icons on the right -->
+        <div class="right">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('bmi_calculator') }}" class="active">BMI Calculator</a>
+            <a href="{{ url_for('calorie_calculator') }}">Calorie Calculator</a>
+            <a href="{{ url_for('periods') }}">Period Pain Yoga</a>
+        </div>
+    </div>
+    <!-- <div class="bmi-gauge-image">
+        <img src="{{ url_for('static', filename='bmi-image.png') }}" alt="BMI Gauge">
+    </div> -->
+    <div class="bmi-container-main">
+        <div class="bmi-calculator-container">
+            <!-- <h1 class="bmi-calculator-header">Input Body Index</h1> -->
+
+
+            <form class="bmi-form" action="/calculate_bmi" method="post">
+                <div class="height-container-bmi">
+                    <div class="bmi-form-group">
+                        <label for="height-feet">Height (Feet):</label>
+                        <input type="number" id="height-feet" name="height_feet" required>
+                    </div>
+                    <div class="bmi-form-group">
+
+                        <label for="height-inches">Inches:</label>
+                        <input type="number" id="height-inches" name="height_inches" required>
+                    </div>
+                </div>
+
+                <div class="bmi-form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" name="weight" step="0.1" required>
+                </div>
+
+                <div class="bmi-form-group">
+                    <input type="submit" value="Calculate" class="calculate-button-bmi">
+                </div>
+
+                <div class="result-container">
+                    <div class="result resultbmi">
+                        {% if bmi %}
+                        <p>BMI: {{ bmi }}</p>
+                        {% else %}
+                        <p><small>Fill Out The Data To Know Your Body Mass Index</small></p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <section class="bmi-scale-container">
+                    <div class="bmi-scale-category" style="--scale-color: var(--underweight-color)">
+                        <h4 style="color:#7fb3d5 ;">Underweight</h4>
+                        <p style="color:#7fb3d5 ;">&lt; 18.5</p>
+                    </div>
+                    <div class="bmi-scale-category" style="--scale-color: var(--normal-weight-color)">
+                        <h4 style="color:#a5d6a7 ;">Normal</h4>
+                        <p style="color:#a5d6a7 ;">18.5 - 25</p>
+                    </div>
+                    <div class="bmi-scale-category" style="--scale-color: var(--overweight-color)">
+                        <h4 style="color:#ffb74d ;">Overweight</h4>
+                        <p style="color:#ffb74d ;">25 - 30</p>
+                    </div>
+                    <div class="bmi-scale-category" style="--scale-color: var(--obese-color)">
+                        <h4 style="color:#ef5350 ;">Obese</h4>
+                        <p style="color:#ef5350 ;">≥ 30</p>
+                    </div>
+                </section>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function setGender(gender) {
+            document.getElementById('gender').value = gender;
+        }
+    </script>
+</body>
+<div class="credits">
+    <p>© 2024 Virtual Gym App. All rights reserved. Designed by Saud.</p>
+</div>
+
+</html>

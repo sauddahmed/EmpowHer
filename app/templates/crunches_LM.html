@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn More About Bicep Curls</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+
+<body class="index-back">
+    <div class="gradient-effect"></div>
+    <div class="main-content-LM">
+        <div class="content">
+            <div class="text-section">
+                <h2>Why Crunches Are Important?</h2>
+                <p>
+                    Crunches are a popular exercise for strengthening the core and improving overall fitness. Here are
+                    some key benefits:
+                </p>
+                <ul class="benefits-list">
+                    <li>Targets the abdominal muscles, helping to build core strength and definition.</li>
+                    <li>Improves posture by strengthening the muscles that support the spine.</li>
+                    <li>Enhances stability and balance by engaging the core muscles.</li>
+                    <li>Supports better performance in other exercises and physical activities by building a strong
+                        foundation.</li>
+                    <li>Can be performed without equipment, making them accessible and easy to incorporate into any
+                        workout routine.</li>
+                    <li>Helps in injury prevention by promoting a strong and stable core.</li>
+                </ul>
+
+            </div>
+            <div class="image-section">
+                <img src="{{ url_for('static', filename='crunches.png') }}" alt="Crunches" />
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="{{ url_for('crunches') }}" class="button-LM">Back</a>
+            <a href="{{ url_for('index') }}" class="button-LM">Home</a>
+        </div>
+    </div>
+</body>
+
+</html>

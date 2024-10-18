@@ -1,0 +1,135 @@
+body {
+    background-repeat: no-repeat;
+    background-size: 350px;
+    background-position: 820px 200px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000; /* Black background */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+}
+
+.container {
+    width: 90%; /* Adjust width as needed */
+    max-width: 1200px; /* Maximum width */
+    text-align: center; /* Center align child elements */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside container */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem; /* Large heading size */
+    color: #ff8c00; /* Orange text color */
+    margin-bottom: 20px; /* Space below heading */
+    text-align: center;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: #ff8c00; /* Orange text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Space below main title */
+}
+
+p {
+    font-size: 1.6rem; /* Font size for paragraphs */
+    color: #ff8c00; /* Orange text color */
+    margin-bottom: 10px; /* Space below paragraphs */
+    margin-top: 20px;
+}
+
+.ai {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Space above the image */
+}
+
+.ai img {
+    max-width: 100px; /* Adjust size as needed */
+    max-height: 100px; /* Adjust size as needed */
+    filter: hue-rotate(180deg);
+}
+
+.canvas-container {
+    margin-top: 20px;
+    size: 40px; /* Space above the chart */
+}
+
+.button {
+    display: inline-block;
+    width: 200px; /* Fixed width for all buttons */
+    height: 50px; /* Fixed height for all buttons */
+    line-height: 50px; /* Center text vertically */
+    text-align: center; /* Center text horizontally */
+    background-color: #ff8c00; /* Orange color */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* Remove border */
+    cursor: pointer; /* Cursor style */
+    /* margin: 15px; Margin around buttons */
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.354); /* Soft shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.button:hover {
+    background-color: #a55b00; /* Darker orange on hover */
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px; /* Space above the cards */
+}
+
+.card {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.354);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    overflow: hidden;
+}
+
+.card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.card:hover {
+    background-color: #a55b00;
+    transform: scale(1.05);
+}
+
+.gif-container {
+    align-items: center;
+}

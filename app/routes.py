@@ -958,6 +958,9 @@ def mountainClimbers_LM():
 def index():
     return render_template("index.html")
 
+def home():
+    return jsonify(message="Hello from Flask on Vercel!")
+
 
 @app.route("/bmi_calculator")
 def bmi_calculator():

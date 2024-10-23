@@ -30,22 +30,6 @@
     </div>
 
     <script>
-      // Request camera permission
-      async function requestCameraAccess() {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({
-            video: true,
-          });
-          // If you want to stop the stream after getting permission, uncomment the following line:
-          // stream.getTracks().forEach(track => track.stop());
-        } catch (error) {
-          console.error("Camera access denied:", error);
-        }
-      }
-
-      // Call the request function when the page loads
-      window.onload = requestCameraAccess;
-
       function navigateTo(direction) {
         const pages = [
           { href: "{{ url_for('BicepCurls') }}", name: "BicepCurls" },
@@ -74,6 +58,28 @@
         // Redirect to the new page
         window.location.href = pages[currentPage].href;
       }
+
+      // Function to request camera access
+      function requestCameraAccess() {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            // If needed, you can display the stream in a video element
+            // For example, you could create a video element and attach the stream to it
+            const videoElement = document.createElement("video");
+            videoElement.srcObject = stream;
+            videoElement.play();
+            document
+              .querySelector(".video-container")
+              .appendChild(videoElement);
+          })
+          .catch(function (err) {
+            console.error("Error accessing camera: " + err);
+          });
+      }
+
+      // Call the requestCameraAccess function when the page loads
+      window.onload = requestCameraAccess;
     </script>
 
     <div class="gif-and-text">
@@ -106,7 +112,6 @@
           height="460"
           alt="Video Feed"
           border="3px solid black"
-          ;
         />
       </div>
       <div class="loading-screen">Loading...</div>

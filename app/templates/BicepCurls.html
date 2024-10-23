@@ -64,14 +64,8 @@
         navigator.mediaDevices
           .getUserMedia({ video: true })
           .then(function (stream) {
-            // If needed, you can display the stream in a video element
-            // For example, you could create a video element and attach the stream to it
-            const videoElement = document.createElement("video");
-            videoElement.srcObject = stream;
-            videoElement.play();
-            document
-              .querySelector(".video-container")
-              .appendChild(videoElement);
+            // Camera permission granted, you can now process frames
+            console.log("Camera access granted.");
           })
           .catch(function (err) {
             console.error("Error accessing camera: " + err);
@@ -106,13 +100,7 @@
     </div>
     <div class="container">
       <div class="video-container">
-        <img
-          src="{{ url_for('BicepCurls_video_feed') }}"
-          width="640"
-          height="460"
-          alt="Video Feed"
-          border="3px solid black"
-        />
+        <img src="{{ url_for('BicepCurls_video_feed') }}" />
       </div>
       <div class="loading-screen">Loading...</div>
       <div class="button-container">
